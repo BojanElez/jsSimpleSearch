@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .row-container {
+
+        padding: 15px 0;
+    }
+
+    .left h2 {
+        padding-left: 8px;
+    }
+
+    #mySearch {
+        width: 100%;
+        font-size: 18px;
+        padding: 11px;
+        border: 1px solid #ddd;
+    }
+
+    #myMenu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #myMenu li a {
+        padding: 12px;
+        text-decoration: none;
+        color: black;
+        display: block
+    }
+
+    #myMenu li a:hover {
+        background-color: #dfc099;
+    }
+</style>
+</head>
+
+<body>
+    <div class="row" style="background-color:#66ad9b;">
+        <div class="row-container">
+            <h2>Menu</h2>
+            <input type="text" id="mySearch" placeholder="Search.." title="Type in a category">
+            <ul id="myMenu">
+                <li class="items"><a href="#">HTML</a></li>
+                <li class="items"><a href="#">CSS</a></li>
+                <li class="items"><a href="#">JavaScript</a></li>
+                <li class="items"><a href="#">PHP</a></li>
+                <li class="items"><a href="#">React</a></li>
+                <li class="items"><a href="#">Vue</a></li>
+                <li class="items"><a href="#">C#</a></li>
+                <li class="items"><a href="#">Python</a></li>
+                <li class="items"><a href="#">jQuery</a></li>
+                <li class="items"><a href="#">Angular</a></li>
+                <li class="items"><a href="#">SQL</a></li>
+                <li class="items"><a href="#">Bootstrap</a></li>
+                <li class="items"><a href="#">Node.js</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const searchText = document.getElementById("mySearch");
+        const items = document.querySelectorAll(".items");
+
+        searchText.addEventListener("keyup", function (e) {
+            value = e.target.value.toLowerCase();
+            items.forEach((item) => {
+                itemValue = item.firstChild.innerHTML;
+                if (itemValue.toLowerCase().indexOf(value) > -1) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none"
+                }
+            });
+        })
+
+    </script>
+</body>
+
+</html>
